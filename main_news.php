@@ -44,45 +44,32 @@ if(!empty($arResult["ITEMS"])):?>
 				<?if($k < 1):?>
 					<div class="col-md-8">
 				<?endif?>
-				<?if($k%2 == 0):?>
-					<div class="row">
-				<?endif?>
-					<div class="news-item clearfix">
-						<?if(!empty($arItem["PROPERTIES"]["PREVIEW_VIDEO"]["VALUE"]) && !empty($arItem["PROPERTIES"]["HREF_VIDEO"]["VALUE"])):?>
-							<div class="col-sm-5">
-								<div class="embed-responsive embed-responsive-<?=$arItem["PROPERTIES"]["FORMAT_VIDEO"]["VALUE"]?>">
-									<iframe class="embed-responsive-item" src="<?=$arItem["PROPERTIES"]["HREF_VIDEO"]["VALUE"]?>?rel=0&hd=1&showinfo=0&color=white&html5=1" allowfullscreen></iframe>
+						<div class="news-item clearfix">
+							<?if(!empty($arItem["PROPERTIES"]["PREVIEW_VIDEO"]["VALUE"]) && !empty($arItem["PROPERTIES"]["HREF_VIDEO"]["VALUE"])):?>
+								<div class="col-sm-5">
+									<div class="embed-responsive embed-responsive-<?=$arItem["PROPERTIES"]["FORMAT_VIDEO"]["VALUE"]?>">
+										<iframe class="embed-responsive-item" src="<?=$arItem["PROPERTIES"]["HREF_VIDEO"]["VALUE"]?>?rel=0&hd=1&showinfo=0&color=white&html5=1" allowfullscreen></iframe>
+									</div>
+								</div>
+								<div class="col-sm-7">
+							<?elseif(!empty($arItem["PREVIEW_PICTURE"])):?>
+								<div class="col-sm-3">
+									<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img style="width:100%" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$imgTitle?>"></a>
+								</div>
+								<div class="col-md-9" style="padding-top:0">
+							<?else:?>
+								<div class="col-sm-12">
+							<?endif?>
+								<h3 class="news-title"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=$productTitle?></a></h3>
+								<?if(!empty($arItem["PREVIEW_TEXT"])):?><p><?=$arItem["PREVIEW_TEXT"]?></p><?endif?>								
+								<div class="news-meta">
+									<span class="news-comment-count fa fa-commenting-o pull-right"><?=$arItem["FORUM_MESSAGE_CNT"]?></span>
+									<span class="news-comment-count fa fa-eye pull-right"><?=$arItem["SHOW_COUNTER"]?></span>
+									<span class="news-comment-count fa fa-calendar pull-right"> <?=$arItem["DISPLAY_ACTIVE_FROM"]?></span>
 								</div>
 							</div>
-							<div class="col-sm-7">
-						<?elseif(!empty($arItem["PREVIEW_PICTURE"])):?>
-							<div class="col-sm-3">
-								<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img style="width:100%" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$imgTitle?>"></a>
-							</div>
-							<div class="col-md-9" style="padding-top:0">
-						<?else:?>
-							<div class="col-sm-12">
-						<?endif?>
-							<h3 class="news-title"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=$productTitle?></a></h3>
-							<?if(!empty($arItem["PREVIEW_TEXT"])):?><p><?=$arItem["PREVIEW_TEXT"]?></p><?endif?>								
-							<div class="news-meta">
-								<span class="news-comment-count fa fa-commenting-o pull-right"><?=$arItem["FORUM_MESSAGE_CNT"]?></span>
-								<span class="news-comment-count fa fa-eye pull-right"><?=$arItem["SHOW_COUNTER"]?></span>
-								<span class="news-comment-count fa fa-calendar pull-right"> <?=$arItem["DISPLAY_ACTIVE_FROM"]?></span>
-							</div>
 						</div>
-					</div>
 				<?$k++;
-				if($count == $k):?>
-					<!--<div class="col-md-6 col-sm-6">
-						<div class="see-all-news">
-							<a href="<?=$arParams["MESS_BTN_BUY"]?>"><?=GetMessage("SERGELAND_ELBRUS_NEWS_DETAIL")?> <i class="fa fa-long-arrow-right"></i></a>
-						</div>
-					</div>-->
-				<?endif?>
-				<?if($k%2 == 0 || $count == $k):?>
-					</div>
-				<?endif?>
 				<?if($count == $k):?>
 					</div>
 				<?endif?>
@@ -90,4 +77,3 @@ if(!empty($arResult["ITEMS"])):?>
 		<?endforeach?>
 	</div>
 <?endif?>
-	
