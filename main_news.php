@@ -56,7 +56,7 @@ if(!empty($arResult["ITEMS"])):?>
 								<div class="col-sm-3">
 									<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img style="width:100%" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$imgTitle?>"></a>
 								</div>
-								<div class="col-md-9" style="padding-top:0">
+								<div style="padding-top:0">
 							<?else:?>
 								<div class="col-sm-12">
 							<?endif?>
