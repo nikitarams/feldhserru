@@ -24,7 +24,8 @@
 
 на 
 
-`@media (max-width:768px) {
+`
+@media (max-width:768px) {
 	.news-item .news-title {
 		width:100%;
 		margin-top:10px;
@@ -32,4 +33,15 @@
 	.news-featured .news-title {
 		font-size:16px;
 	}
+}
+
+@media (min-width:768px) {
+	.news-item > [class*="col"]:first-child {
+		padding-right: 15px;
+	}
+}
+`
+и убрать 
+`.news-item > [class*="col"]:first-child {
+	padding-right:13px;
 }`
