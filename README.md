@@ -33,7 +33,6 @@
 		font-size:16px;
 	}
 }
-
 @media (min-width:768px) {
 	.news-item > [class*="col"]:first-child {
 		padding-right: 15px;
