@@ -69,7 +69,7 @@ if(!empty($arResult["ITEMS"])):?>
 								</div>
 							</div>
 						</div>
-				<?$k++;
+				<?$k++;?>
 				<?if($count == $k):?>
 					</div>
 				<?endif?>
