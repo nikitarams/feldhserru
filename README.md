@@ -1,46 +1,196 @@
-# Переделка блока новостей
+# Переделка шапки главной страницы
 
-Имеются два коммита (изменения файла):
-1. https://github.com/nikitarams/feldhserru/commit/eb06d0ec4dec93257b0c7099b98c027190f35925
-здесь код был "причесан" для лучшей читаемости, чтобы понять структуру вложения элементов
+1. Правим файл background0.css
+	стираем все
+2. Правим файл 	template_ad0e78472515602e338156b35e2c0f0a.css
 
-2. https://github.com/nikitarams/feldhserru/commit/8a072d50e3bb84b2c5a444ddc877a74f5254e30c
-В этом коммите убран <div class="row"> и закрывающий его тэг для обертки списка новостей справа.
-также удален класс col-md-9 
+добавить 
 
-Для правильного отображения контента в соответствии с последним коммитом в разрешении 768 x XXXX необходимо поправить класс
-`@media (max-width:768px) {
-	.news-item .news-title {
-		width:100%;
-		margin-top:10px;
-	}
-	.news-item > [class*="col"]:first-child {
-		padding-right:0;
-	}
-	.news-featured .news-title {
-		font-size:16px;
-	}
-}`
-
-на 
-
-`@media (max-width:768px) {
-	.news-item .news-title {
-		width:100%;
-		margin-top:10px;
-	}
-	.news-featured .news-title {
-		font-size:16px;
+@media only screen and (max-width: 768px) {
+	body {
+		background: white;
+		background-image: none;
 	}
 }
-@media (min-width:768px) {
-	.news-item > [class*="col"]:first-child {
-		padding-right: 15px;
+
+@media only screen and (min-width: 769px) {
+	body {
+		background-image:url(/newsite/images/fon/fon0.png);
 	}
-}`
+}
 
-и убрать 
+@media(max-width:768px){
+	.bg-header{
+		height:auto;
+	}
+	.navbar-white{
+		display: none;
+	}
+	.header-button{
+		top:0;
+	}	
+}
 
-`.news-item > [class*="col"]:first-child {
-	padding-right:13px;
-}`
+@media(max-width:768px){
+	.navbar {
+		margin: 15px 0 0 0;
+	}
+}
+	
+
+
+.bg-header
+/* background: url(/newsite/images/header-480.png) center center no-repeat; 
+    height: 90px; */
+    width: 100%;
+    z-index: 99;
+	
+	
+	/*
+	.header-button .btn {
+		display: inline-block;
+		font-size: 12px;
+		color: #355987;
+		background: inherit;
+		border: inherit;
+		text-decoration: underline;
+	}
+	.header-button .btn:before {
+		content: '';
+		display: inline-block;
+		height: 6px;
+		width: 6px;
+		background: #355987;
+		margin-right: 5px;
+	}
+	.header-button .btn:hover {
+		display: inline-block;
+		font-size: 12px;
+		color: #355987;
+		background: inherit;
+		border: inherit;
+		text-decoration: none;
+	}
+	*/
+
+   .navbar-nav > li {
+    /* float:none !important; */
+  }	
+  
+
+
+@media(min-width:992px){
+	/*.bg-header{
+		height:180px;
+	}*/
+@media(min-width:720px){
+	/*.bg-header {
+	  height:95px;
+	}*/
+@media(min-width:640px){
+	/*.bg-header {
+	  height: 122px;
+	}*/
+@media(min-width:600px){
+	/*.bg-header {
+	  height:110px;
+	}*/
+@media(min-width:530px){
+	/*.bg-header {
+	  background:url('/newsite/images/header-980.png') center center no-repeat;
+	  height: 104px;
+	}*/
+@media(min-width:480px){
+	/*.bg-header {
+		height:101px;
+	}*
+@media(min-width:410px){
+	/*.bg-header {
+	  height:92px;
+	}*/
+@media(min-width:360px){
+	/*.bg-header {
+	  height: 88px;
+	}*/
+
+	.navbar-toggle {
+		/*margin-top: -4px;*/
+		margin: 0;
+	}
+	.header-button {
+		position: relative;
+		/*top: -5px;*/
+	}
+
+	
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color:#355987; 
+  
+  -> 
+  
+  border-radius: 50%;
+  background-color: #d9534f;	
+}
+
+
+.navbar-toggle {
+  -moz-border-radius:2px;
+  -webkit-border-radius:2px;
+  border-radius: 2%; -> border-radius: 50%;
+  background-color:#355987; ->background-color: #d9534f;
+  padding:5px 10px;
+}
+
+3. HTML
+
+3.1. Убрать 
+
+`
+<div class="topbar"><div class="logo-img"><a href="/"></a></div</div>
+`
+
+
+
+3.2. Добавить класс col-xs-10 
+
+<div class="col-md-2 col-lg-1">
+	<div class="header-button">
+
+<div class="col-xs-10 col-md-2 col-lg-1">	
+
+3.3. Переставнока элементов #1
+`
+<div class="navbar-header">...</div> 
+	включить в 
+	<div class="row">
+		<div class="col-xs-10 col-md-2 col-lg-1">...</div>
+		<div class="navbar-header col-xs-2">...</div>
+		...
+	</div> 
+`
+
+3.4. Замена содержимого
+	
+`
+<div class="col-xs-10 col-md-2 col-lg-1">
+		...
+</div>
+`
+	
+	на
+`	
+<div class="col-xs-10 col-md-2 col-lg-1">
+	<div class="header-button">
+		<a href="http://forum.feldsher.ru/" class="btn btn-danger col-xs-5 col-sm-12" target="_blank">Форум</a>
+		<a href="/dispetcher/reg/" class="btn btn-primary col-xs-6 col-xs-offset-1 col-sm-offet-0 col-sm-12">Отдел кадров</a>
+	</div>
+</div>
+`
+
+3.5. Замена полосочек на плюсик
+`
+<i class="fa fa-bars"></i> -> <i class="fa fa-plus"></i>
+`
+	
+
+	
