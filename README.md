@@ -3,10 +3,10 @@
 Вот здесь - [видео](https://drive.google.com/file/d/1MF3pwrmBN90tYdw9BzrU1JYozRfRd8Iq/view)
 
 1. Правим файл background0.css
-	стираем body{background-image:url(/newsite/images/fon/fon0.png);}
-2. Правим файл 	template_ad0e78472515602e338156b35e2c0f0a.css
+	стираем ```body{background-image:url(/newsite/images/fon/fon0.png);}```
+2. Правим файл исходный файл [template_ad0e78472515602e338156b35e2c0f0a.css](https://github.com/nikitarams/feldhserru/blob/a003199dd85bda37b2c80b390a18361f104c3d56/template_ad0e78472515602e338156b35e2c0f0a.css)
 
-Можно просто скопировать тот файл который лежит в репозитории на Git
+Можно просто скопировать [новый CSS файл template_ad0e78472515602e338156b35e2c0f0a.css](https://raw.githubusercontent.com/nikitarams/feldhserru/main_page_header_buttons/template_ad0e78472515602e338156b35e2c0f0a.css) файл который лежит в репозитории на Git
 
 или
 
