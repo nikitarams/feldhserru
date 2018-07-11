@@ -1,11 +1,17 @@
 # Переделка шапки главной страницы
 
+Вот здесь - [видео](https://drive.google.com/file/d/1MF3pwrmBN90tYdw9BzrU1JYozRfRd8Iq/view)
+
 1. Правим файл background0.css
-	стираем все
+	стираем body{background-image:url(/newsite/images/fon/fon0.png);}
 2. Правим файл 	template_ad0e78472515602e338156b35e2c0f0a.css
 
-добавить 
+Можно просто скопировать тот файл который лежит в репозитории на Git
 
+или
+
+добавить 
+```
 @media only screen and (max-width: 768px) {
 	body {
 		background: white;
@@ -140,57 +146,62 @@
   background-color:#355987; ->background-color: #d9534f;
   padding:5px 10px;
 }
+```
 
 3. HTML
 
+
 3.1. Убрать 
 
-`
+
+```
 <div class="topbar"><div class="logo-img"><a href="/"></a></div</div>
-`
+```
 
+3.2. Переставнока элементов #1
 
-
-3.2. Добавить класс col-xs-10 
-
-<div class="col-md-2 col-lg-1">
-	<div class="header-button">
-
-<div class="col-xs-10 col-md-2 col-lg-1">	
-
-3.3. Переставнока элементов #1
-`
+```
 <div class="navbar-header">...</div> 
 	включить в 
-	<div class="row">
-		<div class="col-xs-10 col-md-2 col-lg-1">...</div>
-		<div class="navbar-header col-xs-2">...</div>
+<div class="row">
+	<div class="col-xs-10 col-md-2 col-lg-1">...</div>
+	<div class="navbar-header">...</div> 
+	...
+</div>
+```
+
+3.3. Замена содержимого
+	
+```
+<div class="col-md-2 col-lg-1">
 		...
-	</div> 
-`
+</div>
+```
+на
+```	
+<div class="col-xs-10 col-md-2 col-lg-1">
+	<div class="header-button">
+		<a href="http://forum.feldsher.ru/" class="btn btn-danger col-xs-5 col-sm-5" target="_blank">Форум</a>
+		<a href="/dispetcher/reg/" class="btn btn-primary col-xs-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-0 col-sm-6">Отдел кадров</a>
+	</div>
+</div>
+```
 
 3.4. Замена содержимого
 	
-`
-<div class="col-xs-10 col-md-2 col-lg-1">
-		...
-</div>
-`
-	
-	на
-`	
-<div class="col-xs-10 col-md-2 col-lg-1">
-	<div class="header-button">
-		<a href="http://forum.feldsher.ru/" class="btn btn-danger col-xs-5 col-sm-12" target="_blank">Форум</a>
-		<a href="/dispetcher/reg/" class="btn btn-primary col-xs-6 col-xs-offset-1 col-sm-offet-0 col-sm-12">Отдел кадров</a>
+```
+<div class="navbar-header">...</div> 
+```
+на
+```	
+<div class="navbar-header col-xs-2 hidden-md hidden-lg text-center">
+	<div style="display: inline-block;">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+			<span class="sr-only">Меню</span>
+			<i class="fa fa-plus"></i>
+		</button>
 	</div>
 </div>
-`
-
-3.5. Замена полосочек на плюсик
-`
-<i class="fa fa-bars"></i> -> <i class="fa fa-plus"></i>
-`
-	
+```
 
 	
